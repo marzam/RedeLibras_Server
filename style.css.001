@@ -1,0 +1,25 @@
+body {
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Arial;
+
+}
+p {
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Arial;
+    text-align: left;
+    color: #00ff00;
+
+}
+
+a { font-style: italic; }
+h1 a { font-style: italic; }
+/*
+.loud {
+  font-style: italic;
+  color: #00ff00;
+}
+*/
+button.link { background:none;border:none; }
+#highlight { background-color: yellow; }

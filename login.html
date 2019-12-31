@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Rede Libras - UFRRJ </title>
+  <meta name="description" content="Rede Libras - UFRRJ">
+  <link rel="stylesheet" href="css/login-sty.css" type="text/css" />
+  <script type="text/javascript" src="lib/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="lib/redelibrasevents.js"></script>
+
+
+
+
+</head>
+<body>
+
+<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'> -->
+
+<form method="post" action="index.html">
+  <div class="box">
+    <h1>Rede libras</h1>
+
+    <input type="text" id="id_txtLogin" value="zamith.marcelo@gmail.com" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
+
+    <input type="password" id="id_txtSenha" value="zamith.marcelo@gmail.com" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
+
+    <a href="#"><div class="btn" onClick="post_script('logged.php', {login:  document.getElementById('id_txtLogin').value, passwd: document.getElementById('id_txtSenha').value})">Fazer login</div></a> <!-- End Btn -->
+
+    <a href="#"><div id="btn2">Novo usuário</div></a> <!-- End Btn2 -->
+
+  </div> <!-- End Box -->
+
+</form>
+
+<p>Esqueceu o login? <u style="color:#f1c40f;">Clique aqui!</u></p>
+
+
+</body>
+
+</html>

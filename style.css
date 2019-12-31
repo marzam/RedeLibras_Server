@@ -1,0 +1,24 @@
+body {color:#3F51B5; font:76% Verdana,Tahoma,Arial,sans-serif; margin:0 auto; padding:0;}
+button.link { background:none;border:none; color:#3F51B5; font-weight: bold;}
+table {text-align:center; width: 100%}
+a		{ color: #3F51B5; }
+a:link		{ color: blue; text-decoration:none}
+a:visited	{ color: blue; text-decoration:none}
+a:hover		{ color: black; text-decoration: underline}
+
+img {margin:8px 0px -8px 16px; text-align: left;}
+hr {margin:0px 0px 0px -24px;}
+h1 { font-size: 14pt; font-weight: normal; text-align: left;}
+h2 { font-size: 12pt; font-weight: normal; text-align: left;  margin:12px 0px 0px 24px;}
+h3 { font-size: 12pt; font-weight: normal; text-align: left;  margin:12px 0px 0px 24px;}
+h4 { font-size: 10pt; font-weight: normal; }
+h5 { font-size: 8pt; font-weight: bold; }
+h6 { font-size: 8pt; font-weight: normal; }
+p  { margin-top: 2px; margin-bottom: 2px;  font-size: 10pt; font-weight: bold; text-align: justify;}
+
+table.record {text-align:left; width: 100%;  table-layout: auto;}
+tr.record{border: 1px solid #3F51B5;}
+th.record{border: 1px solid #3F51B5;}
+img.record {margin:0px 0px 0px 0px; width: 96px; height: 96px;  border: 1px solid #3F51B5; text-align: left; }
+h1.record{margin:0px 0px 0px 0px; font-size: 14pt; font-weight: bold; text-align: left;  border: 1px solid #3F51B5;}
+h2.record {margin:2px 2px 2px 2px; font-size: 10pt; font-weight: bold; text-align: left;  border: 1px solid #3F51B5; }
