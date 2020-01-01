@@ -133,8 +133,8 @@ function services_in_city($id_city){
   $result = redeLibrasQuery("SELECT t1.ID,t1.especialidade FROM tbEspecialidades t1 INNER JOIN tbPEspecialidade t2 ON t1.ID = t2.id_especialidade INNER JOIN tbEndereco t3 ON t2.id_sprestador = t3.id_sprestador INNER JOIN tbCidades t4 ON t3.id_cidade = t4.ID AND t4.ID = '". $id_city . "' GROUP BY t1.especialidade ORDER BY t1.especialidade;");
   
   echo '<script>';
-  echo 'function onClick_select_workers(opt) {';
-      echo 'JSReceiver.onClick_select_workers(opt);';
+  echo 'function onClick_select_service_in_city(opt) {';
+      echo 'JSReceiver.onClick_select_service_in_city(opt);';
   echo '}';
   echo '</script>';
 
@@ -145,7 +145,7 @@ function services_in_city($id_city){
 
       while($row = $result->fetch_assoc()) {
         echo '<tr>';
-        echo '<td> <button class="link" onclick="onClick_select_workers('. $row['ID']  .')">' . $row['especialidade'] . '</button> </td>';	
+        echo '<td> <button class="link" onclick="onClick_select_service_in_city('. $row['ID']  .')">' . $row['especialidade'] . '</button> </td>';	
 //       echo '<td>' . $row['ID'] . '</td> <td> ' . $row['especialidade'] . '</td>';
 
         echo '</tr>';
@@ -155,6 +155,36 @@ function services_in_city($id_city){
   }//end-if ($result->num_rows > 0) {
 
 }
+//-----------------------------------------------------------------------------------------------
+function list_of_workers_in_city_selected_service($id_service, $id_city){
+      
+	$result = redeLibrasQuery("SELECT t1.nome as name, t1.ID as ID FROM tbUsuario AS t1 INNER JOIN tbEndereco AS t2 INNER JOIN tbPEspecialidade AS t3 ON t1.ID = t2.id_sprestador AND t1.ID = t3.id_sprestador WHERE t2.id_cidade = '". $id_service  ."' AND t3.id = '". $id_city  ."' ORDER BY t1.nome;");
+  
+  echo '<script>';
+  echo 'function onClick_select_worker(opt) {';
+      echo 'JSReceiver.onClick_select_worker(opt);';
+  echo '}';
+  echo '</script>';
+
+
+//  echo 'Especialidades: <br>';
+  if ($result->num_rows > 0) {
+      echo '<table style="width:100%">';
+
+      while($row = $result->fetch_assoc()) {
+        echo '<tr>';
+        echo '<td> <button class="link" onclick="onClick_select_workers('. $row['ID']  .')">' . $row['name'] . '</button> </td>';	
+//       echo '<td>' . $row['ID'] . '</td> <td> ' . $row['especialidade'] . '</td>';
+
+        echo '</tr>';
+      }//end-if($row = $result->fetch_assoc()) {
+
+      echo '</table>';
+  }//end-if ($result->num_rows > 0) {
+
+}
+
+
 
 //-----------------------------------------------------------------------------------------------
 /*
@@ -345,7 +375,9 @@ function worker_full_info($id_user){
        case 2: cities($_GET['id_state']); break;//https://192.168.1.11/redelibras.php?state=2&id_state=18
        case 3: services_in_state($_GET['id_state']); break; //https://192.168.1.11/redelibras.php?state=3&id_state=18
        case 4: services_in_city($_GET['id_city']); break; //https://192.168.1.11/redelibras.php?state=4&id_city=2780
-       case 5: workers_by_service_and_state($_GET['id_service'], $_GET['id_state']); break; //https://192.168.1.11/redelibras.php?state=5&id_state=18&id_service=5
+       case 5: list_of_workers_in_city_selected_service($_GET['id_service'], $_GET['id_city']); break; //https://192.168.1.11/redelibras.php?state=5&id_state=18&id_service=5
+       
+//     case 5: workers_by_service_and_state($_GET['id_service'], $_GET['id_state']); break; //https://192.168.1.11/redelibras.php?state=5&id_state=18&id_service=5
        case 6: worker_full_info($_GET['id_user']);break; //https://192.168.1.11/redelibras.php?state=6&id_user=85
        case 7: login($_GET['id_user'], $_GET['id_passwd']);break;
        default:break;
