@@ -23,31 +23,7 @@
 <!-- Menu -->
 
 
-<div>
-  <div class="rmm style">
-    <ul>
-      <li>
-        <a id="id_login" href="#">Login</a>
-      </li>
-      <script type="text/javascript">  $('a#id_login').click(function(){ login(); }) </script>
 
-      <li>
-        <a id="id_logout" href="#">Logout</a>
-      </li>
-      <script type="text/javascript">  $('a#id_logout').click(function(){ logout(); }) </script>
-
-      <li>
-        <a id="id_record" href="#">Cadastro</a>
-      </li>
-      <script type="text/javascript">  $('a#id_record').click(function(){ record(); }) </script>
-
-      <li>
-        <a id="id_services" href="#">Serviços</a>
-      </li>
-      <script type="text/javascript">  $('a#id_services').click(function(){ services(); }) </script>
-    </ul>
-  </div>
-</div>
 
 <button id="id_hidebutton_userdata" type="button" onClick = "hideObject('id_userdata', 'id_hidebutton_userdata', 'id_showbutton_userdata');" style="float: left;" >-</button>
 <button id="id_showbutton_userdata" type="button" onClick = "showObject('id_userdata', 'id_hidebutton_userdata', 'id_showbutton_userdata' );" style="float: left;">+ Dados pessoais</button>
@@ -55,40 +31,22 @@
 <br>
 <!-- Dados profissionais -->
   <fieldset id="id_userdata">
-   <legend>Dados Pessoais</legend>
+   <legend>Nome:</legend>
    <table cellspacing="10" border="0">
      <col width="15%">
      <col width="85%">
     <tr>
      <td align="right">
-      <label for="nome">Nome completo: </label>
+      <label for="nome" >Nome completo: </label>
      </td>
      <td align="left">
-      <input type="text" id="id_txtName" name="txtName" onkeyup="this.value = this.value.toUpperCase();">
+      <input readonly type="text" id="id_txtName" name="txtName" onkeyup="this.value = this.value.toUpperCase();">
      </td>
 
-    </tr>
-    <tr>
-     <td align="right">
-      <label>Login: </label>
-     </td>
-     <td align="left">
-        <input type="text" id="id_txtLogin" name="txtLogin" maxlength="24" readonly="readonly" >
-     </td>
-    </tr>
-    <tr>
-      <td align="right">
-       <label>Senha: </label>
-      </td>
-      <td align="left">
-         <input type="password" id="id_Txtpasswd" name="txtSenha" maxlength="24">
-      </td>
     </tr>
    </table>
    <input type="hidden" id="id_IDUSER" name="id_IDUSER" value="-1">
    <input type="hidden" id="id_user_update" name="id_user_update" value="0">
-   <hr>
-   <button id="id_user_data_confirm" type="button" onClick = "document.getElementById('id_user_update').value = '1'" style="float: center;" > Confirma </button>
 
  </fieldset>
 
@@ -102,11 +60,7 @@
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $name = $row['nome'];
-        $login = $row['login'];
-        $passwd = $row['senha'];
         echo '<script>document.getElementById("id_txtName").value = "'.$name.'" ; </script>';
-        echo '<script>document.getElementById("id_txtLogin").value = "'.$login.'" ; </script>';
-        echo '<script>document.getElementById("id_Txtpasswd").value = "'.$passwd.'" ; </script>';
         echo '<script>document.getElementById("id_IDUSER").value = "'.$userID.'" ; </script>';
     }else{
       echo 'ERROR!!!!';
@@ -132,7 +86,7 @@
               <label for="lblAddr">Endereço (Rua/Av.):</label>
              </td>
              <td align="left">Endereços
-              <input type="text" id="id_txtAddr" onkeyup="this.value = this.value.toUpperCase();">
+              <input readonly type="text" id="id_txtAddr" onkeyup="this.value = this.value.toUpperCase();">
              </td>
 
             </tr>
@@ -141,7 +95,7 @@
                <label for="lblAddrAdd">Complemento:</label>
               </td>
               <td align="left">
-               <input type="text" id="id_txtAddrAdd" onkeyup="this.value = this.value.toUpperCase();" >
+               <input readonly type="text" id="id_txtAddrAdd" onkeyup="this.value = this.value.toUpperCase();" >
               </td>
             </tr>
             <tr>
@@ -149,7 +103,7 @@
               <label for="lblNeighborhood">Bairro: </label>
              </td>
              <td align="left">
-              <input type="text" id="id_txtNeighborhood" onkeyup="this.value = this.value.toUpperCase();">
+              <input readonly type="text" id="id_txtNeighborhood" onkeyup="this.value = this.value.toUpperCase();">
              </td>
             </tr>
             <tr>
@@ -157,35 +111,7 @@
               <label for="lblState">Estado:</label>
              </td>
              <td align="left">
-              <select id="id_selState">
-              <option value="AC">Acre</option>
-              <option value="AL">Alagoas</option>
-              <option value="AM">Amazonas</option>
-              <option value="AP">Amapá</option>
-              <option value="BA">Bahia</option>
-              <option value="CE">Ceará</option>
-              <option value="DF">Distrito Federal</option>
-              <option value="ES">Espírito Santo</option>
-              <option value="GO">Goiás</option>
-              <option value="MA">Maranhão</option>
-              <option value="MT">Mato Grosso</option>
-              <option value="MS">Mato Grosso do Sul</option>
-              <option value="MG">Minas Gerais</option>
-              <option value="PA">Pará</option>
-              <option value="PB">Paraíba</option>
-              <option value="PR">Paraná</option>
-              <option value="PE">Pernambuco</option>
-              <option value="PI">Piauí</option>
-              <option value="RJ">Rio de Janeiro</option>
-              <option value="RN">Rio Grande do Norte</option>
-              <option value="RO">Rondônia</option>
-              <option value="RS">Rio Grande do Sul</option>
-              <option value="RR">Roraima</option>
-              <option value="SC">Santa Catarina</option>
-              <option value="SE">Sergipe</option>
-              <option value="SP">São Paulo</option>
-              <option value="TO">Tocantins</option>
-             </select>
+               <input readonly type="text" id="id_txtState" onkeyup="this.value = this.value.toUpperCase();">
              </td>
             </tr>
             <tr>
@@ -193,7 +119,7 @@
               <label for="lblCity">Cidade: </label>
              </td>
              <td align="left">
-              <input type="text" id="id_txtCity" onkeyup="this.value = this.value.toUpperCase();">
+              <input readonly type="text" id="id_txtCity" onkeyup="this.value = this.value.toUpperCase();">
              </td>
             </tr>
 
@@ -207,23 +133,12 @@
 <!--          <button type="button" id="id_btnPrevAddr" onClick="prevAddr()">Anterior</button> -->
           <button type="button" id="id_btnPrevAddr" onClick="prevAddr()">Anterior</button>
         </td>
-        <td align="center">
-          <button type="button" id="id_btnAddAddr" onClick="addAddr()">Adicionar</button>
-        </td>
-        <td align="center">
-          <button type="button" id="id_btnDelAddr" onClick="delAddr()">Apagar</button>
-        </td>
+
         <td align="center">
           <button type="button" id="id_btnNextAddr" onClick="nextAddr()">Próximo</button>
         </td>
 
-        <td align="center">
-          <button type="button" id="id_btnOKAddr" onClick="confirmAddr()">Confirma</button>
-        </td>
 
-        <td align="center">
-          <button type="button" id="id_btnCancelAddr" onClick="cancelAddr()">Cancela</button>
-        </td>
 
        </tr>
      </table>
@@ -231,7 +146,7 @@
      <input type="hidden" id="id_addr_update" name="id_addr_update" value="0">
 
      <hr>
-     <button id="id_addr_data_confirm" type="button" onClick = "document.getElementById('id_addr_update').value = '1'" style="float: center;" > Confirma </button>
+
 
 
      <input type="hidden" id="id_numAddrs" name="numAddrs" value="0">
@@ -256,9 +171,8 @@
          echo '<script>document.getElementById("id_txtNeighborhood").value = "'.$neighborhood.'" ; </script>' . PHP_EOL;
          echo '<script>document.getElementById("id_txtCity").value = "'.$city.'" ; </script>' . PHP_EOL;
          echo '<script>document.getElementById("id_IDADDR").value = "'.$addrID.'" ; </script>' . PHP_EOL;
-         //echo '<script>document.getElementById("id_numAddrs").value = "'.$curRecord.'" ; </script>' . PHP_EOL;
-         //echo '<script>document.getElementById("id_curAddrs").value = "1" ; </script>' . PHP_EOL;
-         echo '<script>setStateValue("'.$state.'") ; </script>' . PHP_EOL;
+         echo '<script>document.getElementById("id_txtState").value = "'.$state.'" ; </script>' . PHP_EOL;
+         //echo '<script>setStateValue("'.$state.'") ; </script>' . PHP_EOL;
          echo '<script>confirmAddr();</script>'. PHP_EOL;
        }
 
@@ -286,9 +200,8 @@
       <table cellspacing="10" border="0" id="id_userphonelist">
       <tr>
         <td> <input type="hidden" id="idPhone" value="-1"> </td>
-        <td> <input  id="txtPhone" type="text"  ></td>
-        <td> <button id="addPhone" type="button" onclick="insRow('id_userphonelist');" >+</button> </td>
-        <td> <button id="remPhone" type="button" onclick="delRow(this, 'id_userphonelist');">-</button> </td>
+        <td> <input readonly id="txtPhone" type="text"  ></td>
+
        </tr>
 
      </table>
@@ -296,8 +209,7 @@
     </div>
 
     <td> <input type="hidden" id="id_phone_update" name="id_phone_update" value="0"> </td>
-    <hr>
-    <button id="id_phone_data_confirm" type="button" onClick = "document.getElementById('id_phone_update').value = '1'" style="float: center;" > Confirma </button>
+
 
 </fieldset>
 
@@ -346,16 +258,13 @@
       <table cellspacing="10" border="0" id="id_useremaillist">
       <tr>
         <td> <input type="hidden" id="idEmail" value="-1"> </td>
-        <td> <input  id="txtemail" type="email"  ></td>
+        <td> <input readonly id="txtemail" type="email"  ></td>
         <td> <input type="hidden" id="id_phone_update" name="id_email_update" value="0"> </td>
-        <td> <button id="addemail" type="button" onclick="insRow('id_useremaillist');" >+</button> </td>
-        <td> <button id="rememail" type="button" onclick="delRow(this, 'id_useremaillist');">-</button> </td>
+
        </tr>
      </table>
     </div>
     <td> <input type="hidden" id="id_email_update" name="id_email_update" value="0"> </td>
-    <hr>
-    <button id="id_email_data_confirm" type="button" onClick = "document.getElementById('id_email_update').value = '1'" style="float: center;" > Confirma </button>
 
 </fieldset>
 <?php
@@ -387,12 +296,6 @@
      echo 'ERROR!!!!';
    }
 ?>
-
-<br><br>
-<div>
-  <button id="id_save" type="button" onclick="sendXML();" >Gravar dados</button>
-</div>
-
 </body>
 
 </html>
