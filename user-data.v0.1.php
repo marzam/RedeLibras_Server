@@ -137,6 +137,9 @@
         <td align="center">
           <button type="button" id="id_btnNextAddr" onClick="nextAddr()">Próximo</button>
         </td>
+        <td align="center">
+          <button type="button" id="id_btnMap" onClick="callMaps()">Mapa</button>
+        </td>
 
 
 
@@ -201,7 +204,12 @@
       <tr>
         <td> <input type="hidden" id="idPhone" value="-1"> </td>
         <td> <input readonly id="txtPhone" type="text"  ></td>
-
+        <td align="center">
+          <button type="button" id="id_btnPhone" onClick="callPhone(0)">Ligar</button>
+        </td>
+        <td align="center">
+          <button type="button" id="id_btnWhatsApp" onClick="callPhone(1)">Whatsapp</button>
+        </td>
        </tr>
 
      </table>
@@ -260,7 +268,9 @@
         <td> <input type="hidden" id="idEmail" value="-1"> </td>
         <td> <input readonly id="txtemail" type="email"  ></td>
         <td> <input type="hidden" id="id_phone_update" name="id_email_update" value="0"> </td>
-
+        <td align="center">
+          <button type="button" id="id_btnEmail" onClick="sendEmail()">e-mail</button>
+        </td>
        </tr>
      </table>
     </div>

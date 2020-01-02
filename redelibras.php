@@ -133,7 +133,7 @@ function list_of_workers_in_city_selected_service($id_service, $id_city){
 
       while($row = $result->fetch_assoc()) {
         echo '<tr>';
-        echo '<td> <button class="link" onclick="onClick_select_worker('. $row['ID']  .')">' . $row['nome'] . '</button> </td>';
+        echo '<td> <button class="link" onclick="onClick_select_worker('. $row['id_sprestador']  .')">' . $row['nome'] . '</button> </td>';
         echo '</tr>';
       }//end-if($row = $result->fetch_assoc()) {
 
@@ -224,7 +224,7 @@ function worker_full_info($id_user){
 }
 //-----------------------------------------------------------------------------------------------
    $state = $_GET['state'];
-   
+
    switch ($state) {
        case 1: states_maps(); break;//https://192.168.1.11/redelibras.php?state=1
        case 2: cities($_GET['id_state']); break;//https://192.168.1.11/redelibras.php?state=2&id_state=18
@@ -242,4 +242,3 @@ function worker_full_info($id_user){
 </body>
 
 </html>
-4
